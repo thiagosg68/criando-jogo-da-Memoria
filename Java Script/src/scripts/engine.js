@@ -52,6 +52,24 @@ function checkMatch(){
     openCards = [];
 
     if (document.querySelectorAll(".boxMatch").length === emojis.length) {
-        alert(" Voce venceu! ");
+        alert(" Voce venceu com  " + contadorJogadas + " Jogadas");
     }
 }
+let contadorJogadas = 0;
+ // Função para atualizar o contador de jogadas na interface 
+function atualizarContadorJogadas() {
+     document.getElementById("contadorJogadas").textContent = contadorJogadas; 
+    }
+  //Suponha que esta seja a função que lida com o clique em uma carta
+function lidarComCliqueNaCarta(carta) { 
+    // Lógica do jogo aqui (verificar pares, etc.) 
+    // Incrementar o contador de jogadas 
+    contadorJogadas++; 
+    // Atualizar o contador na interface 
+    atualizarContadorJogadas(); 
+} // Exemplo de como você chamaria lidarComCliqueNaCarta ao clicar em uma carta 
+document.querySelectorAll('.item').forEach(carta => { 
+    carta.addEventListener('click', function() { 
+        lidarComCliqueNaCarta(carta); 
+    }); 
+});
